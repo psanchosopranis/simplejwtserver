@@ -120,6 +120,7 @@ public class TokenIntrospectResource {
                     Object scopes = jwsBodyClaims.get("scp");
                     tir.setScp((ArrayList<String>) scopes);
                     tir.setCid(jwsBodyClaims.get("cid", String.class));
+                    tir.setTokenType(token_type);
 
                     return Response
                             .status(Response.Status.OK)
