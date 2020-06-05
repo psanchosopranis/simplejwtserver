@@ -158,7 +158,7 @@ public class TokenResource {
 
 
                 return Response
-                        .accepted(Response.Status.OK)
+                        .status(Response.Status.OK)
                         .entity(tokenResponse).build();
             } else {
                 return Response.status(Response.Status.UNAUTHORIZED)

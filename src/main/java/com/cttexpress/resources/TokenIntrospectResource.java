@@ -131,14 +131,14 @@ public class TokenIntrospectResource {
                     tier.setActive(false);
                     tier.setRemarks(tex.getMessage());
                     return Response
-                            .accepted(Response.Status.CONFLICT)
+                            .status(Response.Status.CONFLICT)
                             .entity(tier).build();
                 } catch (io.jsonwebtoken.security.SignatureException sex) {
                     TokenIntrospectNotValidResponse tinvr = new TokenIntrospectNotValidResponse();
                     tinvr.setValidSignature(false);
                     tinvr.setRemarks(sex.getMessage());
                     return Response
-                            .accepted(Response.Status.CONFLICT)
+                            .status(Response.Status.CONFLICT)
                             .entity(tinvr).build();
                 } catch (Throwable ex) {
                     String message = ex.getClass().getName() + " : " + (ex.getMessage() != null ? ex.getMessage() : "(Causa no disponible)");

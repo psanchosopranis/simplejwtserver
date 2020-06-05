@@ -103,14 +103,14 @@ public class TokenValidateResource {
                 tkve.setActive(false);
                 tkve.setRemarks(tex.getMessage());
                 return Response
-                        .accepted(Response.Status.CONFLICT)
+                        .status(Response.Status.CONFLICT)
                         .entity(tkve).build();
             } catch (io.jsonwebtoken.security.SignatureException sex) {
                 TokenValidateNotValidResponse tkvnv = new TokenValidateNotValidResponse();
                 tkvnv.setValidSignature(false);
                 tkvnv.setRemarks(sex.getMessage());
                 return Response
-                        .accepted(Response.Status.CONFLICT)
+                        .status(Response.Status.CONFLICT)
                         .entity(tkvnv).build();
             } catch (Throwable ex) {
                 String message = ex.getClass().getName() + " : " + (ex.getMessage() != null ? ex.getMessage() : "(Causa no disponible)");
