@@ -1,0 +1,27 @@
+[Unit]
+Description=Simple JWT Server
+
+[Service]
+TimeoutStartSec=5min
+Type=simple
+User=administrador
+Group=administrador
+WorkingDirectory=/home/administrador/simplejwtserver
+Environment="SIMPLEJWTSERVER_HOME=/home/administrador/simplejwtserver"
+Environment="TOKENS_YAML_PATH=/home/administrador/simplejwtserverpersistence/tokens"
+Environment="APICLIENTS_YAML_PATH=/home/administrador/simplejwtserverpersistence/apiclients/api-clients.yml"
+Environment="JAVA_RUN=/usr/lib/jvm/java-8-openjdk-amd64/bin/java"
+
+ExecStart=/usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /home/administrador/simplejwtserver/scripts/tomcat-embedded-example-1.0.0.jar
+ExecStop=/bin/kill -SIGTERM $MAINPID
+
+SuccessExitStatus=143
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=simplejwtserver
+LimitNOFILE=500000
+LimitNPROC=500000
+
+[Install]
+WantedBy=multi-user.target
+

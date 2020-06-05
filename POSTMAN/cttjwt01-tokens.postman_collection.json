@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "349153cc-8ecc-46e4-885d-74f69e381c50",
+		"name": "cttjwt01-tokens",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "77dd7e151c9ed32a8eb5de233b9c9d582b9b0bc7",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "bbb86a9f0fd7a43a809f3e311163e1d7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scopes",
+							"value": "PDA03",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cttexpress.iam.com:8080/oauth2/default/v1/token",
+					"protocol": "http",
+					"host": [
+						"cttexpress",
+						"iam",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Introspect Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "77dd7e151c9ed32a8eb5de233b9c9d582b9b0bc7",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "bbb86a9f0fd7a43a809f3e311163e1d7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJiYmI4NmE5ZjBmZDdhNDNhODA5ZjNlMzExMTYzZTFkNyIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwOi8vY3R0ZXhwcmVzcy5pYW0uY29tOjgwODAvb2F1dGgyL2RlZmF1bHQvdjEvdG9rZW4iLCJzdWIiOiJQREEgQ09ORFVDVE9SRVMiLCJhdWQiOiJhYXBpOi8vY3R0LWNvbmR1Y3RvcmVzIiwiZXhwIjoxNTkxMzU5Nzg5LCJuYmYiOjE1OTEzNTk0ODksImlhdCI6MTU5MTM1OTQ4OSwianRpIjoiMWE3ZTFkMjYtMDlhZS00Mjc2LTgxNGYtN2NhZDNiZmYyMjRlIiwic2NwIjpbIlBEQTAzIl0sImNpZCI6ImJiYjg2YTlmMGZkN2E0M2E4MDlmM2UzMTExNjNlMWQ3In0.CAjp2EwUutRRMoDBw6G-jClDdyOOavsV1bp45_qaWLDCui3zpGBX3IpB4IHBzbfZIgA_cEFyO8VEQk1dNOlwM4y4i_FK2qYrkOyFs0KQshK5ORUS-P4RirhyR2GTj-847YxTr-n0MKM91AuQy8XoiOjpVz_u_HgTawrXHFqeIRwxiKq_2T7AQRasr6SaQ3u-NOJInkgGq0NTc2TP421KmLiSuBMtyzvFXGsNSM7Gd0TggVlZJqJBLVM_sf4DgPGWeKeWw_DfkO4gh-he5pX79A8rGX9ikJXCOkRdSWeH2rWHKqgGDMVXGOnDDMtbiYzC2Y-fsovVKlod6p3DhjO4RA",
+							"type": "text"
+						},
+						{
+							"key": "token_type",
+							"value": "access-token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cttexpress.iam.com:8080/oauth2/default/v1/introspect",
+					"protocol": "http",
+					"host": [
+						"cttexpress",
+						"iam",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"introspect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "System User Validate Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "devel1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJiYmI4NmE5ZjBmZDdhNDNhODA5ZjNlMzExMTYzZTFkNyIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwOi8vY3R0ZXhwcmVzcy5pYW0uY29tOjgwODAvb2F1dGgyL2RlZmF1bHQvdjEvdG9rZW4iLCJzdWIiOiJQREEgQ09ORFVDVE9SRVMiLCJhdWQiOiJhYXBpOi8vY3R0LWNvbmR1Y3RvcmVzIiwiZXhwIjoxNTkxMzU5Nzg5LCJuYmYiOjE1OTEzNTk0ODksImlhdCI6MTU5MTM1OTQ4OSwianRpIjoiMWE3ZTFkMjYtMDlhZS00Mjc2LTgxNGYtN2NhZDNiZmYyMjRlIiwic2NwIjpbIlBEQTAzIl0sImNpZCI6ImJiYjg2YTlmMGZkN2E0M2E4MDlmM2UzMTExNjNlMWQ3In0.CAjp2EwUutRRMoDBw6G-jClDdyOOavsV1bp45_qaWLDCui3zpGBX3IpB4IHBzbfZIgA_cEFyO8VEQk1dNOlwM4y4i_FK2qYrkOyFs0KQshK5ORUS-P4RirhyR2GTj-847YxTr-n0MKM91AuQy8XoiOjpVz_u_HgTawrXHFqeIRwxiKq_2T7AQRasr6SaQ3u-NOJInkgGq0NTc2TP421KmLiSuBMtyzvFXGsNSM7Gd0TggVlZJqJBLVM_sf4DgPGWeKeWw_DfkO4gh-he5pX79A8rGX9ikJXCOkRdSWeH2rWHKqgGDMVXGOnDDMtbiYzC2Y-fsovVKlod6p3DhjO4RA",
+							"type": "text"
+						},
+						{
+							"key": "token_type",
+							"value": "access-token",
+							"type": "text"
+						},
+						{
+							"key": "token_pubkey",
+							"value": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiJ8vTMFsepgGMsE4C1a5CStxLw/BarA7VYhEoOYeRuDe6ycajYtGjX0CLQ+7LeUqsScKPptNzoS4yMG9y0BoHIUNBaAKMqHRNiG3laaRYJwE6c+1d/ELSajxyFrw1N4c9BHEXcnPvxDEfoCj+2XNjK7uXI9/G4IeEsSekZJItTSxkiEPh8bDVwcPKSQujYrhMahemYbWVwykcreHHmdW3KMSgw74Nv5y0iPN7k6TZzbMMb1P3egikoymFhNx3qBMWunwG7OdD8IXe3w12QZlBJKrTSf6yIox9ar9DxzdsEV2tocTDRh/Mgipj3/LIKbbGqWRUOw8bnN0ehe9ylxCVQIDAQAB",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cttexpress.iam.com:8080/oauth2/default/v1/validate",
+					"protocol": "http",
+					"host": [
+						"cttexpress",
+						"iam",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "System User Get PubKey",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "devel1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "keyId",
+							"value": "bbb86a9f0fd7a43a809f3e311163e1d7",
+							"type": "text"
+						},
+						{
+							"key": "token_type",
+							"value": "access-token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token_pubkey",
+							"value": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArY0960FPJotrwx0Er9p5SkrbJ9cH/yKzPaSNzNT/LNjdnmSM+CdIjLRbPuK+KTmzxTd9XjlUqkAc+FvG1+t4lbjuxeGru+SvIWaMJmU6+ObLgCf+4XsxV2+pYY0LHtfijuBeV3OzZQUsqTI1oOLdv8Y4dEVHecpKGtXgbwvaS9ZUfu9ABzk8nTC+8jdazyco7tvdvKhDxVZCqOpB3KJqjkusWkBNuw41AIlzutB+xWy0p/6+MocZxRWWGDmeEo54Jnm1E+Axr34fHxcmA3RgdpUU5LFa/hmlsRcn4lnQgP6GgwaC4vKIRUROWgD7+r1SGbXjUCDgdw/BxCbAQo2j3wIDAQAB",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://cttexpress.iam.com:8080/oauth2/default/v1/pubkey",
+					"protocol": "http",
+					"host": [
+						"cttexpress",
+						"iam",
+						"com"
+					],
+					"port": "8080",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"pubkey"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
