@@ -12,7 +12,7 @@ Environment="TOKENS_YAML_PATH=/home/administrador/simplejwtserverpersistence/tok
 Environment="APICLIENTS_YAML_PATH=/home/administrador/simplejwtserverpersistence/apiclients/api-clients.yml"
 Environment="JAVA_RUN=/usr/lib/jvm/java-8-openjdk-amd64/bin/java"
 
-ExecStart=/usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /home/administrador/simplejwtserver/scripts/tomcat-embedded-example-1.0.0.jar
+ExecStart=/usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /home/administrador/simplejwtserver/binaries/tomcat-embedded-example-1.0.0.jar
 ExecStop=/bin/kill -SIGTERM $MAINPID
 
 SuccessExitStatus=143

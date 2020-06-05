@@ -89,6 +89,7 @@ public class TokenValidateResource {
                 tir.setIat(jwsBodyClaims.getIssuedAt().getTime());
                 tir.setNbf(jwsBodyClaims.getNotBefore().getTime());
                 tir.setJti(jwsBodyClaims.getId());
+                tir.setTokenType(token_type);
 
                 Object scopes = jwsBodyClaims.get("scp");
                 tir.setScp((ArrayList<String>) scopes);
@@ -99,19 +100,21 @@ public class TokenValidateResource {
                         .entity(tir).build();
 
             } catch (io.jsonwebtoken.ExpiredJwtException tex) {
-                TokenValidateExpiredResponse tkve = new TokenValidateExpiredResponse();
-                tkve.setActive(false);
-                tkve.setRemarks(tex.getMessage());
                 return Response
                         .status(Response.Status.CONFLICT)
-                        .entity(tkve).build();
+                        .entity(ErrorResponseFactory.getInstance(
+                                "ERR-409-VALD1",
+                                "token-expired",
+                                tex.getMessage()))
+                        .build();
             } catch (io.jsonwebtoken.security.SignatureException sex) {
-                TokenValidateNotValidResponse tkvnv = new TokenValidateNotValidResponse();
-                tkvnv.setValidSignature(false);
-                tkvnv.setRemarks(sex.getMessage());
                 return Response
                         .status(Response.Status.CONFLICT)
-                        .entity(tkvnv).build();
+                        .entity(ErrorResponseFactory.getInstance(
+                                "ERR-409-VALD2",
+                                "invalid-token-signature",
+                                sex.getMessage()))
+                        .build();
             } catch (Throwable ex) {
                 String message = ex.getClass().getName() + " : " + (ex.getMessage() != null ? ex.getMessage() : "(Causa no disponible)");
                 return Response.status(Response.Status.INTERNAL_SERVER_ERROR)

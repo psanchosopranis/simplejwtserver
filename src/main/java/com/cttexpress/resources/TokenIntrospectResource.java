@@ -127,19 +127,21 @@ public class TokenIntrospectResource {
                             .entity(tir).build();
 
                 } catch (io.jsonwebtoken.ExpiredJwtException tex) {
-                    TokenIntrospectExpiredResponse tier = new TokenIntrospectExpiredResponse();
-                    tier.setActive(false);
-                    tier.setRemarks(tex.getMessage());
                     return Response
                             .status(Response.Status.CONFLICT)
-                            .entity(tier).build();
+                            .entity(ErrorResponseFactory.getInstance(
+                                    "ERR-409-INTR1",
+                                    "token-expired",
+                                    tex.getMessage()))
+                            .build();
                 } catch (io.jsonwebtoken.security.SignatureException sex) {
-                    TokenIntrospectNotValidResponse tinvr = new TokenIntrospectNotValidResponse();
-                    tinvr.setValidSignature(false);
-                    tinvr.setRemarks(sex.getMessage());
                     return Response
                             .status(Response.Status.CONFLICT)
-                            .entity(tinvr).build();
+                            .entity(ErrorResponseFactory.getInstance(
+                                    "ERR-409-INTR2",
+                                    "invalid-token-signature",
+                                    sex.getMessage()))
+                            .build();
                 } catch (Throwable ex) {
                     String message = ex.getClass().getName() + " : " + (ex.getMessage() != null ? ex.getMessage() : "(Causa no disponible)");
                     return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
