@@ -42,7 +42,7 @@ public class CommonAppServletContextListener
             //get the properties value and print it out
             System.out.println("\nPropiedades de configuración recuperadas para 'Persistence Controller': ");
             System.out.println("\t - apiClientsYamlFilePath[" + prop.getProperty("apiClientsYamlFilePath") + "]");
-            System.out.println("\t - tokensYamlFilePath[" + prop.getProperty("tokensYamlFilePath") + "]");
+            System.out.println("\t - tokensYamlFolderPath[" + prop.getProperty("tokensYamlFolderPath") + "]");
 
             System.out.println("\nConfiguración resultante para 'Persistence Controller': ");
             String apiClientsYamlFilePath = System.getenv("APICLIENTS_YAML_PATH");
@@ -53,18 +53,18 @@ public class CommonAppServletContextListener
                 System.out.println("\t - apiClientsYamlFilePath (Desde Variables de Entorno.) [" + apiClientsYamlFilePath + "]\n");
             }
 
-            String tokensYamlFilePath = System.getenv("TOKENS_YAML_PATH");
-            if (tokensYamlFilePath == null || tokensYamlFilePath.isEmpty()) {
-                tokensYamlFilePath = prop.getProperty("tokensYamlFilePath");
-                System.out.println("\t - tokensYamlFilePath (Desde archivo de Properties) [" + tokensYamlFilePath + "]\n");
+            String tokensYamlFolderPath = System.getenv("TOKENS_YAML_PATH");
+            if (tokensYamlFolderPath == null || tokensYamlFolderPath.isEmpty()) {
+                tokensYamlFolderPath = prop.getProperty("tokensYamlFolderPath");
+                System.out.println("\t - tokensYamlFolderPath (Desde archivo de Properties) [" + tokensYamlFolderPath + "]\n");
             } else {
-                System.out.println("\t - tokensYamlFilePath (Desde Variables de Entorno.) [" + tokensYamlFilePath + "]\n");
+                System.out.println("\t - tokensYamlFolderPath (Desde Variables de Entorno.) [" + tokensYamlFolderPath + "]\n");
             }
 
 
             // Create your objects
             PersistenceController persistenceController =
-                    new PersistenceController(apiClientsYamlFilePath, tokensYamlFilePath);
+                    new PersistenceController(apiClientsYamlFilePath, tokensYamlFolderPath);
             persistenceController.init();
 
             sce.getServletContext().setAttribute("persistenceController", (Object) persistenceController);

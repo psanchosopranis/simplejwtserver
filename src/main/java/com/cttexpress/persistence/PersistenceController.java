@@ -11,21 +11,21 @@ import org.yaml.snakeyaml.constructor.Constructor;
 public class PersistenceController {
 
     protected String apiClientsYamlFilePath;
-    protected String tokensYamlFilePath;
+    protected String tokensYamlFolderPath;
     protected ApiClientsTable apiClientTable;
 
     private PersistenceController() {
         // NOT ACCESIBLE
     }
 
-    public PersistenceController(String apiClientsYamlFilePath, String tokensYamlFilePath) {
+    public PersistenceController(String apiClientsYamlFilePath, String tokensYamlFolderPath) {
         this.apiClientsYamlFilePath = apiClientsYamlFilePath;
-        this.tokensYamlFilePath = tokensYamlFilePath;
+        this.tokensYamlFolderPath = tokensYamlFolderPath;
     }
 
     public String getApiClientsYamlFilePath() { return apiClientsYamlFilePath; }
 
-    public String getTokensYamlFilePath() { return tokensYamlFilePath; }
+    public String gettokensYamlFolderPath() { return tokensYamlFolderPath; }
 
     public ApiClientsTable getApiClientTable() {
         return apiClientTable;
@@ -97,6 +97,25 @@ public class PersistenceController {
             throw ex;
         }
         return apiClientsTable;
+    }
+
+    public void persistTokenItem(TokenItem tokenItem) throws Throwable {
+
+        Yaml yaml = null;
+
+        try {
+            DumperOptions options = new DumperOptions();
+            options.setDefaultFlowStyle(DumperOptions.FlowStyle.BLOCK);
+            options.setPrettyFlow(true);
+            options.setIndent(4);
+            yaml = new Yaml(options);
+            String apiClientsAsYamlString = yaml.dump(tokenItem);
+            persist(
+                    this.tokensYamlFolderPath + File.separator + tokenItem.getId() + ".yml",
+                    apiClientsAsYamlString.getBytes("utf-8"));
+        } catch (Throwable ex) {
+            throw ex;
+        }
     }
 
     protected void persist(String filePath, byte[] data) throws Throwable {

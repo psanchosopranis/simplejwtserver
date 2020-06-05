@@ -6,8 +6,10 @@ import com.cttexpress.models.TokenResponseFactory;
 import com.cttexpress.persistence.ApiClientItem;
 import com.cttexpress.persistence.ApiClientsTable;
 import com.cttexpress.persistence.PersistenceController;
+import com.cttexpress.persistence.TokenItem;
 import com.cttexpress.utils.BasicAuth;
 import com.cttexpress.utils.JwtUtils;
+import com.cttexpress.utils.RSAUtils;
 import io.jsonwebtoken.JwtBuilder;
 
 import javax.servlet.ServletContext;
@@ -20,6 +22,7 @@ import java.net.URI;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -126,8 +129,14 @@ public class TokenResource {
                             .build();
                 }
 
+                String jwtId = UUID.randomUUID().toString();
+
                 JwtBuilder jwtBuilder =
-                        JwtUtils.jwsGenerate(apiClientItem, uri.toASCIIString(), requestedScopes);
+                        JwtUtils.jwsGenerate(
+                                jwtId,
+                                apiClientItem,
+                                uri.toASCIIString(),
+                                requestedScopes);
 
 
                 TokenResponse tokenResponse = TokenResponseFactory.getInstance(
@@ -135,6 +144,18 @@ public class TokenResource {
                         apiClientItem.getTokenExpirationMinutes(),
                         jwtBuilder.compact(),
                         scopes);
+
+                TokenItem tokenItem = new TokenItem(
+                        tokenResponse,
+                        jwtId,
+                        apiClientItem.getClientId(),
+                        apiClientItem.getPubkeyb4(),
+                        RSAUtils.getPublicKeyAsPEMfile(apiClientItem.getPubkeyb4(), true),
+                        apiClientItem.getKeypairId()
+                );
+
+                persistenceController.persistTokenItem(tokenItem);
+
 
                 return Response
                         .accepted(Response.Status.OK)

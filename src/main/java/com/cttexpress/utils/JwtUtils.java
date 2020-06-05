@@ -17,7 +17,11 @@ import java.util.UUID;
 public class JwtUtils {
 
 
-    public static JwtBuilder jwsGenerate(ApiClientItem apiClientItem, String uri, String[] requestedScopes) throws Throwable {
+    public static JwtBuilder jwsGenerate(
+            String jwtId,
+            ApiClientItem apiClientItem,
+            String uri,
+            String[] requestedScopes) throws Throwable {
 
         try {
             Base64 base64 = new Base64();
@@ -37,7 +41,7 @@ public class JwtUtils {
                     .setExpiration(expirationTime)
                     .setNotBefore(issueTime)
                     .setIssuedAt(issueTime)
-                    .setId(UUID.randomUUID().toString())
+                    .setId(jwtId)
                     .claim("scp", requestedScopes)
                     .claim("cid", apiClientItem.getClientId())
                     .signWith(privateKey);
