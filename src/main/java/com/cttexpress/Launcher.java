@@ -18,13 +18,13 @@ public class Launcher {
 
         String  httpScheme = System.getenv("HTTP_SCHEME");
         System.out.println("Env HTTP_SCHEME[" + httpScheme + "]");
-        if (httpScheme == null ||
-            !httpScheme.trim().equalsIgnoreCase("HTTP") ||
-            !httpScheme.trim().equalsIgnoreCase("HTTPS") ) {
+        if (httpScheme != null && httpScheme.trim().equalsIgnoreCase("HTTP")) {
+            httpScheme = "HTTP";
+        } else if (httpScheme != null && httpScheme.trim().equalsIgnoreCase("HTTPS")) {
+            httpScheme = "HTTPS";
+        } else {
             httpScheme = "HTTP";
             System.out.println("Default HTTP_SCHEME[" + httpScheme + "]");
-        } else {
-            httpScheme = httpScheme.trim();
         }
 
         String contextPath = "";
