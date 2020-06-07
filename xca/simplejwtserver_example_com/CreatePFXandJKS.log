@@ -1,0 +1,248 @@
++ openssl pkcs12 -export -out simplejwtserver_example_com.pfx -passout pass:changeit -inkey simplejwtserver_example_com_PKEY.pem -passin pass:changeit -in simplejwtserver_example_com.crt -CAfile CASubordinateDomains.crt -certfile CASubordinateDomains.crt -name simplejwtserver_example_com
++ openssl pkcs12 -info -in simplejwtserver_example_com.pfx -passin pass:changeit
+MAC: sha1, Iteration 2048
+MAC length: 20, salt length: 8
+PKCS7 Encrypted data: pbeWithSHA1And40BitRC2-CBC, Iteration 2048
+Certificate bag
+Bag Attributes
+    localKeyID: E8 D8 A1 3A FB 21 32 FF E6 74 3E 78 74 A8 13 D7 47 80 44 1F 
+    friendlyName: simplejwtserver_example_com
+subject=C = es, ST = madrid, L = madrid, O = Example Company, OU = Admin PKI, CN = simplejwtserver.example.com, emailAddress = admin.pki@example.com
+
+issuer=C = es, ST = es, L = madrid, O = Example Company, OU = Admin PKI, CN = Example Com Subordinate CA Domains, emailAddress = admin.pki@example.com
+
+-----BEGIN CERTIFICATE-----
+MIIE8zCCA9ugAwIBAgIIBRpngZU+BPIwDQYJKoZIhvcNAQELBQAwgawxCzAJBgNV
+BAYTAmVzMQswCQYDVQQIEwJlczEPMA0GA1UEBxMGbWFkcmlkMRgwFgYDVQQKEw9F
+eGFtcGxlIENvbXBhbnkxEjAQBgNVBAsTCUFkbWluIFBLSTErMCkGA1UEAxMiRXhh
+bXBsZSBDb20gU3Vib3JkaW5hdGUgQ0EgRG9tYWluczEkMCIGCSqGSIb3DQEJARYV
+YWRtaW4ucGtpQGV4YW1wbGUuY29tMB4XDTIwMDYwNzAwMDAwMFoXDTI1MDYwNjIz
+NTk1OVowgakxCzAJBgNVBAYTAmVzMQ8wDQYDVQQIEwZtYWRyaWQxDzANBgNVBAcT
+Bm1hZHJpZDEYMBYGA1UEChMPRXhhbXBsZSBDb21wYW55MRIwEAYDVQQLEwlBZG1p
+biBQS0kxJDAiBgNVBAMTG3NpbXBsZWp3dHNlcnZlci5leGFtcGxlLmNvbTEkMCIG
+CSqGSIb3DQEJARYVYWRtaW4ucGtpQGV4YW1wbGUuY29tMIIBIjANBgkqhkiG9w0B
+AQEFAAOCAQ8AMIIBCgKCAQEA7GYYSMsN2jkoSjtLYYfnKcwzVwFN6oQ4dv5f8Yiz
+dLhATIYPLx2ZtyCfGr10FHnPwJZ9OY9zdG5xOt0lCHVPXq6cXrcBg0DO7I/wZAEI
+ORxsbfpBWoJTVA/R0A5x4rC9OyuDTT57dTBGsbbzpmmmGbGHyAJ4MbDLCkGXP13y
+oCu+xczEJlAz70hAtE1xj/7iV4Vs6fpORLHigr0hKsDN5VWPOk2N6e/RZ1amKkZk
++xcHamM6Sgjf7J7EyIqDcJGzpj0EZOCsnxY7WosQNaLlrS7Q5MZdKsqvfYU16pOt
+5cuNH8EGN5lJ2J4bxDqQGrwJCrXggkpVDsbhlWCFCKrrcwIDAQABo4IBGDCCARQw
+DAYDVR0TAQH/BAIwADAdBgNVHQ4EFgQU+fa+XbfVXn6kZZr4Q5Aafg8hNI8wCwYD
+VR0PBAQDAgPoMBMGA1UdJQQMMAoGCCsGAQUFBwMBMFQGA1UdEQRNMEuCG3NpbXBs
+ZWp3dHNlcnZlci5leGFtcGxlLmNvbYIbc2ltcGxland0c2VydmVyLmV4YW1wbGUu
+Y29tgg9zaW1wbGVqd3RzZXJ2ZXIwEQYJYIZIAYb4QgEBBAQDAgZAMFoGCWCGSAGG
++EIBDQRNFktUZXN0IFNlcnZlciBDZXJ0aWZpY2F0ZSBwYXJhIHRlc3RzIHkgZGVt
+b3MgU0lOIFZBTE9SIExFR0FMIG8gUkVQUkVTRU5UQVRJVk8wDQYJKoZIhvcNAQEL
+BQADggEBAExe5+GK/fTFe4Gljz63q354tLCqwZMZ3usi3IGg3zht2R4xmFZgQWnR
+6dtwWEulEODSZmk4DGLsZYks8L+Bk38zmuq+pP2xXvOD5Rfc/gWp8yh8pz0rOPVr
+mX7JHH/rgHEbgnwAnSVywquHdK+vAhOK96+63VqJhcKbd+33sLfbTOFzW35iLG0e
+Qw2dX91pnC5pDaDYrzeAQdASvtJBRqr86fYQX5o6kVwdTsMhDHjph9kwvWEkr2gn
+WDCR9tiuS0CjVSo22/hNo8c3M1C8+kjaa1pgC7z3C/pV2hTMxEUMS7+PmIdsrpDB
+4rqZKcp6JcaosvwtGh33XjDf8Mu3hAk=
+-----END CERTIFICATE-----
+Certificate bag
+Bag Attributes: <No Attributes>
+subject=C = es, ST = es, L = madrid, O = Example Company, OU = Admin PKI, CN = Example Com Subordinate CA Domains, emailAddress = admin.pki@example.com
+
+issuer=C = es, ST = madrid, L = madrid, O = Example Company, OU = Admin PKI, CN = Example Com Root CA, emailAddress = admin.pki@example.com
+
+-----BEGIN CERTIFICATE-----
+MIIEcTCCA1mgAwIBAgIIHju7N2cS1s8wDQYJKoZIhvcNAQELBQAwgaExCzAJBgNV
+BAYTAmVzMQ8wDQYDVQQIEwZtYWRyaWQxDzANBgNVBAcTBm1hZHJpZDEYMBYGA1UE
+ChMPRXhhbXBsZSBDb21wYW55MRIwEAYDVQQLEwlBZG1pbiBQS0kxHDAaBgNVBAMT
+E0V4YW1wbGUgQ29tIFJvb3QgQ0ExJDAiBgkqhkiG9w0BCQEWFWFkbWluLnBraUBl
+eGFtcGxlLmNvbTAeFw0yMDA2MDcwMDAwMDBaFw0zMDA2MDYyMzU5NTlaMIGsMQsw
+CQYDVQQGEwJlczELMAkGA1UECBMCZXMxDzANBgNVBAcTBm1hZHJpZDEYMBYGA1UE
+ChMPRXhhbXBsZSBDb21wYW55MRIwEAYDVQQLEwlBZG1pbiBQS0kxKzApBgNVBAMT
+IkV4YW1wbGUgQ29tIFN1Ym9yZGluYXRlIENBIERvbWFpbnMxJDAiBgkqhkiG9w0B
+CQEWFWFkbWluLnBraUBleGFtcGxlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEP
+ADCCAQoCggEBANoDysVI2zVF+F0zx6WVDDAmEbA97rdkJj3k6CmVl5tMxIgYDUOy
+CbxxIGj7Z11Adm0c28tuVQJJRGA+A/ctwV+dvNK0enU8gk+wBQpdwePuhcKdSl6P
+t+/fFP557r4hc2t6yCAhTVOBx3axh1EE517mwO2GSWnGc0EtkpREgZD4wHdo3zzC
+ULjaihQPuXOF0GMisE6puKlVeJk4cJnGhITeKixcdcDV/It+e6Yv0AQTgquxu7p3
+SDdkSIYxAB7w9tfpMzxnXzfIwMYGfBKoG9XKOxTi7YZ4twTZgvoJ8mFJ3qZ7PdAc
+LDTQy1xNQnPH1mriqCFuteX1XVhz+ZQqv00CAwEAAaOBnzCBnDAPBgNVHRMBAf8E
+BTADAQH/MB0GA1UdDgQWBBRR2+YFkkyTmfkRpCZt5I7gcofTxTALBgNVHQ8EBAMC
+AQYwEQYJYIZIAYb4QgEBBAQDAgAHMEoGCWCGSAGG+EIBDQQ9FjtUZXN0IENBIHBh
+cmEgdGVzdHMgeSBkZW1vcyBTSU4gVkFMT1IgTEVHQUwgbyBSRVBSRVNFTlRBVElW
+TzANBgkqhkiG9w0BAQsFAAOCAQEAdhq65Xuzj1OJLcgDiIedvAfpc1C66ynbmUo9
+zylvznAzfUAGaWrhfC3u3wHliDrA4T++/r9erVx6zBSy7ZflaTzfH3AhXYROiDNG
+d/whYXy74O3ezPXEDJPp7b+rmEK532O0CumG2PU+3dOO1B6r0tA+3a4L35ZoS0wA
+4p6SxvKe6gxvyfFZdew1mwuw+D7A8dykSWnL4yLvmRsx5m1XoiVUjYs6hkECj0aA
+krMrfw1JDfzCQVK9ViruI89vOeys/8eoI/v9LbKLvNG7Yla8kRlE9HHw2tJaOdcZ
+QFPoHmhIRjXs9KfbVKHzfwNXbngklwjVo/RAwiHzOLdURnTShQ==
+-----END CERTIFICATE-----
+PKCS7 Data
+Shrouded Keybag: pbeWithSHA1And3-KeyTripleDES-CBC, Iteration 2048
+Bag Attributes
+    localKeyID: E8 D8 A1 3A FB 21 32 FF E6 74 3E 78 74 A8 13 D7 47 80 44 1F 
+    friendlyName: simplejwtserver_example_com
+Key Attributes: <No Attributes>
+Enter PEM pass phrase:
+Verifying - Enter PEM pass phrase:
+-----BEGIN ENCRYPTED PRIVATE KEY-----
+MIIFHDBOBgkqhkiG9w0BBQ0wQTApBgkqhkiG9w0BBQwwHAQI/eviQvQDc9oCAggA
+MAwGCCqGSIb3DQIJBQAwFAYIKoZIhvcNAwcECEHVrpkyIe0TBIIEyNdu7C49LDMF
+RzSP0ViTrVVi6rE3SvggX72/meSGtAoyEq+6jLCjhmE59uWwvn3pFpiAtHeaKBqX
+vlSerMfMrNqekrexIAcV5xiTMi4aPQX0XFCwfgnDkz4qHoKhhkh19LNW/hlRHzC3
+5sSFJIK1+paKRlL5JADjVh1op/VfcNfe+b3z5K3EWjMCRHSAONS5YmIEdgXpH0QW
+/hytnkVGPx+JgYwH4eKSV5PWWGovQa3B+4UNzB3110MUl1SHGwF8jPmH5pQnJN57
+p3RGadcncb6tpFYSZjry8pLZEz9N1WwX4fZZVSrrxKIwiNCwvBrelsqZgiSwV0j1
+fXSHrA6uTqvcmgeT25W0hcMJfxwuCelVZMe4ec4NwzJVnbIbwp7tbGIi2ugpecjS
+hRthXCOeeEUB2cPIr9TO0mibEFxMYjHLjGLA9+UYWBzak11BCew1kX50kufWHOOP
+LDnd+RVJQX6Fae13GX9g8gQ8n2M91QczAc8pSL8sj62jtTYLKBYhow2fgIupjE2s
+awO+We/bz8NWq2VRaM/oGJNWsrQYA5xrzN773/g4t5Z/EUAmj9iCM0Z+DtNugiDA
+L0FjrmglReHcUB9Y/JKIuOcMn3sltjn9Wy+CW2zHpBylk3dvpw6v3czIK76UBDNT
+evsRl48CPMaBnEE3xqA7CpUosd+EkmQOiEVgJFn5glun8y2EIahvVPCg4q5VKMPA
+p7l1RvrKGEqXqSjxqdCEfKh86FuPgS5BExPklYyXKVGdNbdc+ixmXAD0tQy2LD9n
+2EwjIJokFLgUkeOfbGhHBPvfezZjiLWjakY4KOxobagCVu4Vf81OQdaHefpaWAFo
+S0441xj4eOyAvDC6XsaJFey7ApmkSLObMxu346bXwHxlqXcS77p1XLruQL5zubKQ
+AmlXAv5surufv9g97NpD2OhHI1gX+H6aY9+A7f/aq2q+V4lDRrfCajyaysCCTrKl
+z/pNtVOUwmSDgmmpzYwDIXWzvC2xIIbXxyW+CQqfyvVappJFwCAuHiNHF8BXp60E
+8d/FKar8ayV7kgLKVoV+YitfBH02px3UZq1cOA1jHkUf70hTfkl14Hzqy++Qu8H9
+MYVN+L+bInyThev9ibvMwK/0Ci/X9lX98K7b9MF2WFZbHz1+5Nu8Zxp+WPkGfzr+
+ayNFhvkBgD2nAUdb+xQLqkSgmxReg+8aIAbmKqpXQQfnYebs4PubAC9sk8LhRDl5
+82YVJZadpGIPZfOu9tdhbXJVxfNJhmgHvoVPJliWayPHHBQ3Pg5fvyAon/Ps/odB
+7yoUPKdarNREot1QZDQXdZyn7zE9NE9257MgvnA474tHvg6uFr2DknfB0kvey/Tv
+zyRmmejJw4t02vqvYg4jdFKb4Cgu8fvoPGBqqYrKGD4sn/4Cy/IhMYAUApDOhVet
+9KhM6oFfRTCDvJkUdSJBgbc8i7YzrnyWt0vwFpku/brP7RAaV/HoM16Ov+koJl59
+HnDM+Bs0ja/hDmO3i0k8SoCIL1y5S9+YwfsPARqlfqNaNlObQE6lnz0phVZ3oIeX
+b3WKSiOZjShYAR2ZWuxldGQvVHoPyUY5fWvg3Mkti54aDe5LRoPUXpYZW1rQPvvG
+BOWI1BXJu5c6fC0U0rJ3bg==
+-----END ENCRYPTED PRIVATE KEY-----
++ /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el8_1.x86_64/bin/keytool -importkeystore -srckeystore simplejwtserver_example_com.pfx -srcstoretype pkcs12 -srcstorepass changeit -srcalias simplejwtserver_example_com -destkeystore simplejwtserver_example_com.jks -destkeypass changeit -destalias simplejwtserver_example_com -deststoretype jks -deststorepass changeit
+Importando el almacén de claves de simplejwtserver_example_com.pfx a simplejwtserver_example_com.jks...
+
+Warning:
+El almacén de claves JKS utiliza un formato propietario. Se recomienda migrar a PKCS12, que es un formato estándar del sector que utiliza "keytool -importkeystore -srckeystore simplejwtserver_example_com.jks -destkeystore simplejwtserver_example_com.jks -deststoretype pkcs12".
++ /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.252.b09-2.el8_1.x86_64/bin/keytool -list -v -keystore simplejwtserver_example_com.jks -storetype jks -storepass changeit
+Tipo de Almacén de Claves: JKS
+Proveedor de Almacén de Claves: SUN
+
+Su almacén de claves contiene 1 entrada
+
+Nombre de Alias: simplejwtserver_example_com
+Fecha de Creación: 07-jun-2020
+Tipo de Entrada: PrivateKeyEntry
+Longitud de la Cadena de Certificado: 2
+Certificado[1]:
+Propietario: EMAILADDRESS=admin.pki@example.com, CN=simplejwtserver.example.com, OU=Admin PKI, O=Example Company, L=madrid, ST=madrid, C=es
+Emisor: EMAILADDRESS=admin.pki@example.com, CN=Example Com Subordinate CA Domains, OU=Admin PKI, O=Example Company, L=madrid, ST=es, C=es
+Número de serie: 51a6781953e04f2
+Válido desde: Sun Jun 07 02:00:00 CEST 2020 hasta: Sat Jun 07 01:59:59 CEST 2025
+Huellas digitales del certificado:
+	 MD5: 67:AF:4A:0E:22:08:AA:4F:11:FA:02:66:41:F7:92:A0
+	 SHA1: E8:D8:A1:3A:FB:21:32:FF:E6:74:3E:78:74:A8:13:D7:47:80:44:1F
+	 SHA256: A2:60:60:FA:4C:78:CE:F5:73:7F:D0:DB:C5:70:B4:9F:59:04:F2:8F:25:52:A7:9A:13:46:64:C5:FC:37:D2:8F
+Nombre del algoritmo de firma: SHA256withRSA
+Algoritmo de clave pública de asunto: Clave RSA de 2048 bits
+Versión: 3
+
+Extensiones: 
+
+#1: ObjectId: 2.16.840.1.113730.1.13 Criticality=false
+0000: 16 4B 54 65 73 74 20 53   65 72 76 65 72 20 43 65  .KTest Server Ce
+0010: 72 74 69 66 69 63 61 74   65 20 70 61 72 61 20 74  rtificate para t
+0020: 65 73 74 73 20 79 20 64   65 6D 6F 73 20 53 49 4E  ests y demos SIN
+0030: 20 56 41 4C 4F 52 20 4C   45 47 41 4C 20 6F 20 52   VALOR LEGAL o R
+0040: 45 50 52 45 53 45 4E 54   41 54 49 56 4F           EPRESENTATIVO
+
+
+#2: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:false
+  PathLen: undefined
+]
+
+#3: ObjectId: 2.5.29.37 Criticality=false
+ExtendedKeyUsages [
+  serverAuth
+]
+
+#4: ObjectId: 2.5.29.15 Criticality=false
+KeyUsage [
+  DigitalSignature
+  Non_repudiation
+  Key_Encipherment
+  Key_Agreement
+]
+
+#5: ObjectId: 2.16.840.1.113730.1.1 Criticality=false
+NetscapeCertType [
+   SSL server
+]
+
+#6: ObjectId: 2.5.29.17 Criticality=false
+SubjectAlternativeName [
+  DNSName: simplejwtserver.example.com
+  DNSName: simplejwtserver.example.com
+  DNSName: simplejwtserver
+]
+
+#7: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: F9 F6 BE 5D B7 D5 5E 7E   A4 65 9A F8 43 90 1A 7E  ...]..^..e..C...
+0010: 0F 21 34 8F                                        .!4.
+]
+]
+
+Certificado[2]:
+Propietario: EMAILADDRESS=admin.pki@example.com, CN=Example Com Subordinate CA Domains, OU=Admin PKI, O=Example Company, L=madrid, ST=es, C=es
+Emisor: EMAILADDRESS=admin.pki@example.com, CN=Example Com Root CA, OU=Admin PKI, O=Example Company, L=madrid, ST=madrid, C=es
+Número de serie: 1e3bbb376712d6cf
+Válido desde: Sun Jun 07 02:00:00 CEST 2020 hasta: Fri Jun 07 01:59:59 CEST 2030
+Huellas digitales del certificado:
+	 MD5: 8A:F3:7B:05:F1:6C:71:D1:25:AB:79:08:CB:32:1F:85
+	 SHA1: 8A:7A:A4:16:B5:62:E3:CC:E4:A5:38:78:5D:EB:D0:62:6F:EC:5F:00
+	 SHA256: 8F:0A:CF:83:46:7E:84:C8:F6:F2:50:E1:57:CA:C2:D2:8A:E8:B8:F9:F2:FF:66:AB:06:71:8A:9E:29:DB:67:8E
+Nombre del algoritmo de firma: SHA256withRSA
+Algoritmo de clave pública de asunto: Clave RSA de 2048 bits
+Versión: 3
+
+Extensiones: 
+
+#1: ObjectId: 2.16.840.1.113730.1.13 Criticality=false
+0000: 16 3B 54 65 73 74 20 43   41 20 70 61 72 61 20 74  .;Test CA para t
+0010: 65 73 74 73 20 79 20 64   65 6D 6F 73 20 53 49 4E  ests y demos SIN
+0020: 20 56 41 4C 4F 52 20 4C   45 47 41 4C 20 6F 20 52   VALOR LEGAL o R
+0030: 45 50 52 45 53 45 4E 54   41 54 49 56 4F           EPRESENTATIVO
+
+
+#2: ObjectId: 2.5.29.19 Criticality=true
+BasicConstraints:[
+  CA:true
+  PathLen:2147483647
+]
+
+#3: ObjectId: 2.5.29.15 Criticality=false
+KeyUsage [
+  Key_CertSign
+  Crl_Sign
+]
+
+#4: ObjectId: 2.16.840.1.113730.1.1 Criticality=false
+NetscapeCertType [
+   SSL CA
+   S/MIME CA
+   Object Signing CA]
+
+#5: ObjectId: 2.5.29.14 Criticality=false
+SubjectKeyIdentifier [
+KeyIdentifier [
+0000: 51 DB E6 05 92 4C 93 99   F9 11 A4 26 6D E4 8E E0  Q....L.....&m...
+0010: 72 87 D3 C5                                        r...
+]
+]
+
+
+
+*******************************************
+*******************************************
+
+
+
+Warning:
+El almacén de claves JKS utiliza un formato propietario. Se recomienda migrar a PKCS12, que es un formato estándar del sector que utiliza "keytool -importkeystore -srckeystore simplejwtserver_example_com.jks -destkeystore simplejwtserver_example_com.jks -deststoretype pkcs12".
++ set +x
+
