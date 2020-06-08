@@ -1,6 +1,12 @@
 [Unit]
 Description=Simple JWT Server
 
+# Notas:
+# 1) Recordar ejecutar "sudo systemctl daemon-reload"
+#    para activar modificaciones a este archivo.
+# 2) Ubicación de este "Systemd Unit":
+#    Centos: /usr/lib/systemd/system/
+#    Ubuntu: /lib/systemd/system/
 [Service]
 TimeoutStartSec=5min
 Type=simple
@@ -10,7 +16,11 @@ WorkingDirectory=/home/administrador/simplejwtserver
 Environment="SIMPLEJWTSERVER_HOME=/home/administrador/simplejwtserver"
 Environment="TOKENS_YAML_PATH=/home/administrador/simplejwtserverpersistence/tokens"
 Environment="APICLIENTS_YAML_PATH=/home/administrador/simplejwtserverpersistence/apiclients/api-clients.yml"
-Environment="JAVA_RUN=/usr/lib/jvm/java-8-openjdk-amd64/bin/java"
+Environment="HTTP_SCHEME=HTTPS"
+Environment="PORT=9090"
+Environment="KEYALIAS=simplejwtserver_cttexpress_local"
+Environment="KEYSTOREPASS=changeit"
+Environment="KEYSTOREFILE=/home/administrador/simplejwtserverpersistence/simplejwtserver_cttexpress_local/simplejwtserver_cttexpress_local.jks"
 
 ExecStart=/usr/lib/jvm/java-8-openjdk-amd64/bin/java -jar /home/administrador/simplejwtserver/binaries/tomcat-embedded-example-1.0.0.jar
 ExecStop=/bin/kill -SIGTERM $MAINPID

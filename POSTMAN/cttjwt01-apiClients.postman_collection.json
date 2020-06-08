@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "45654b3b-3a12-4a79-983e-a837e3e8fd9d",
+		"name": "cttjwt01-apiClients",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create ApiClient",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject\": \"PDA CONDUCTORES 2\",\n    \"audience\": \"api://ctt-conductores\",\n    \"scopes\": [\n        \"IMEI-000001\",\n        \"IMEI-000002\"\n    ],\n    \"tokenExpirationMinutes\": 10,\n    \"status\": \"ACTIVE\"\n}"
+				},
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/api-clients",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"api-clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve ALL APIClients",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/api-clients",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"api-clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve an APIClients Instance",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/api-clients/21d4759addf84a89c13426fe9e9a2c0b",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"api-clients",
+						"21d4759addf84a89c13426fe9e9a2c0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an APIClients Instance",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"subject\": \"PDA CONDUCTORES\",\n    \"audience\": \"aapi://ctt-conductores\",\n    \"scopes\": [\n        \"PDA02\",\n        \"PDA03\",\n        \"PDA05\"\n    ],\n    \"tokenExpirationMinutes\": 5,\n    \"status\": \"ACTIVE\",\n    \"renewClientSecret\": false,\n    \"renewKeyPair\": true\n}"
+				},
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/api-clients/21d4759addf84a89c13426fe9e9a2c0b",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"api-clients",
+						"21d4759addf84a89c13426fe9e9a2c0b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete an APIClients Instance",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/api-clients/21d4759addf84a89c13426fe9e9a2c0b",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"api-clients",
+						"21d4759addf84a89c13426fe9e9a2c0b"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ccbe1599-6f89-4fe3-9d68-d8cbb1d56a4f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "97c29590-f4e7-4e70-9b45-523ffc15d214",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

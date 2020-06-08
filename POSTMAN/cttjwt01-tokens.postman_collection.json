@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "349153cc-8ecc-46e4-885d-74f69e381c50",
+		"name": "cttjwt01-tokens",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "77dd7e151c9ed32a8eb5de233b9c9d582b9b0bc7",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "bbb86a9f0fd7a43a809f3e311163e1d7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "scopes",
+							"value": "PDA02,PDA03",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/token",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Client Introspect Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "77dd7e151c9ed32a8eb5de233b9c9d582b9b0bc7",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "bbb86a9f0fd7a43a809f3e311163e1d7",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJiYmI4NmE5ZjBmZDdhNDNhODA5ZjNlMzExMTYzZTFkNyIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwczovL3NpbXBsZWp3dHNlcnZlci5leGFtcGxlLmNvbTo5MDkwL29hdXRoMi9kZWZhdWx0L3YxL3Rva2VuIiwic3ViIjoiUERBIENPTkRVQ1RPUkVTIiwiYXVkIjoiYWFwaTovL2N0dC1jb25kdWN0b3JlcyIsImV4cCI6MTU5MTYwMTg4NSwibmJmIjoxNTkxNjAxNTg1LCJpYXQiOjE1OTE2MDE1ODUsImp0aSI6IjNlOTU2NzIxLTdjMDYtNDFkOS04YzQzLTBjNTg1ZWJhYTlkNiIsInNjcCI6WyJQREEwMiIsIlBEQTAzIl0sImNpZCI6ImJiYjg2YTlmMGZkN2E0M2E4MDlmM2UzMTExNjNlMWQ3In0.iGFlPRQ7KNewGMSTolAkSeVNnNYp-67mf2Y55q34xMm9G8kOYIlKjrB2_TIMjy2o15Ykgpp7Z01SbIkjPSbHwaRw7SEWUJHLvboxSQ9rLt7rMOIHEkCn7917Qmmk8qrVmyeyHwlzWXN1IusoYv0f2WOOUzILmd3nuGO4bsHvQRWk5qm9cOYAMpcUeAbVfguNVpIaLnrJTyQyjQHzO1QNCNX5tnRtmmSi0pjwshzd2CdNtbh8hHzuHw-pi54hXOT7pKE7HfbtJ5Pe-77xrBm_VQmDI0y_YJMtZuep7B_DuK5FZJ8vg5YQ82mGUjqlAhaa3QOuUfJFb_hzhNWM47mKig",
+							"type": "text"
+						},
+						{
+							"key": "token_type",
+							"value": "access-token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/introspect",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"introspect"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "System User Validate Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "devel1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "eyJraWQiOiJiYmI4NmE5ZjBmZDdhNDNhODA5ZjNlMzExMTYzZTFkNyIsImFsZyI6IlJTMjU2In0.eyJpc3MiOiJodHRwczovL3NpbXBsZWp3dHNlcnZlci5leGFtcGxlLmNvbTo5MDkwL29hdXRoMi9kZWZhdWx0L3YxL3Rva2VuIiwic3ViIjoiUERBIENPTkRVQ1RPUkVTIiwiYXVkIjoiYWFwaTovL2N0dC1jb25kdWN0b3JlcyIsImV4cCI6MTU5MTYwMTg4NSwibmJmIjoxNTkxNjAxNTg1LCJpYXQiOjE1OTE2MDE1ODUsImp0aSI6IjNlOTU2NzIxLTdjMDYtNDFkOS04YzQzLTBjNTg1ZWJhYTlkNiIsInNjcCI6WyJQREEwMiIsIlBEQTAzIl0sImNpZCI6ImJiYjg2YTlmMGZkN2E0M2E4MDlmM2UzMTExNjNlMWQ3In0.iGFlPRQ7KNewGMSTolAkSeVNnNYp-67mf2Y55q34xMm9G8kOYIlKjrB2_TIMjy2o15Ykgpp7Z01SbIkjPSbHwaRw7SEWUJHLvboxSQ9rLt7rMOIHEkCn7917Qmmk8qrVmyeyHwlzWXN1IusoYv0f2WOOUzILmd3nuGO4bsHvQRWk5qm9cOYAMpcUeAbVfguNVpIaLnrJTyQyjQHzO1QNCNX5tnRtmmSi0pjwshzd2CdNtbh8hHzuHw-pi54hXOT7pKE7HfbtJ5Pe-77xrBm_VQmDI0y_YJMtZuep7B_DuK5FZJ8vg5YQ82mGUjqlAhaa3QOuUfJFb_hzhNWM47mKig",
+							"type": "text"
+						},
+						{
+							"key": "token_type",
+							"value": "access-token",
+							"type": "text"
+						},
+						{
+							"key": "token_pubkey",
+							"value": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmiksPrQekL8pZiseMkDctoblOLq0JqFUAWpY8zD+iklATnuo8OaIijJ7a8gqj7GacwZUpCqNO7Ci3D1MLLOurvK9WjMqNX03pMnVIQTMVEOvCWG/ygw8+OA+IEPYm0wefVlQ6Ky2D/pL51aDusaMLlvKnlB8GPuE7V5BhR0F2gsCEF7/FhwuT50BUd4xG6Z1MnAqpAo3mTgdLUhKNFGyLFDvRgwDdZN8Sp4/vdEAa+SxNrXXYSyWgYbm2NS2P58Ce5C0rTcEZcXmUnU+BgO/G7Y8jCOyjqcSNf3VQ3eY0NVBIYbeE1DYyAd/mRH6JvWeyeq9BklQ9d4HMcRerox81wIDAQAB",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/validate",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "System User Get PubKey",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "changeit",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "devel1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "keyId",
+							"value": "bbb86a9f0fd7a43a809f3e311163e1d7",
+							"type": "text"
+						},
+						{
+							"key": "token_type",
+							"value": "access-token",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token_pubkey",
+							"value": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArY0960FPJotrwx0Er9p5SkrbJ9cH/yKzPaSNzNT/LNjdnmSM+CdIjLRbPuK+KTmzxTd9XjlUqkAc+FvG1+t4lbjuxeGru+SvIWaMJmU6+ObLgCf+4XsxV2+pYY0LHtfijuBeV3OzZQUsqTI1oOLdv8Y4dEVHecpKGtXgbwvaS9ZUfu9ABzk8nTC+8jdazyco7tvdvKhDxVZCqOpB3KJqjkusWkBNuw41AIlzutB+xWy0p/6+MocZxRWWGDmeEo54Jnm1E+Axr34fHxcmA3RgdpUU5LFa/hmlsRcn4lnQgP6GgwaC4vKIRUROWgD7+r1SGbXjUCDgdw/BxCbAQo2j3wIDAQAB",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://simplejwtserver.example.com:9090/oauth2/default/v1/pubkey",
+					"protocol": "https",
+					"host": [
+						"simplejwtserver",
+						"example",
+						"com"
+					],
+					"port": "9090",
+					"path": [
+						"oauth2",
+						"default",
+						"v1",
+						"pubkey"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
