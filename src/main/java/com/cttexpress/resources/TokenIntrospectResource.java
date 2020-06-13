@@ -32,29 +32,20 @@ public class TokenIntrospectResource {
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response introspectToken(@FormParam("token") String token,
-                             @FormParam("token_type") String token_type,
-                             @HeaderParam("Authorization") String authorization,
-                             @Context UriInfo uriInfo) {
+    public Response introspectToken(
+            @FormParam("clientId") String clientId,
+            @FormParam("clientSecret") String clientSecret,
+            @FormParam("token") String token,
+            @FormParam("token_type") String token_type,
+            @Context UriInfo uriInfo) {
 
         try {
             URI uri = uriInfo.getAbsolutePathBuilder().build();
 
-            BasicAuth basicAuth = new BasicAuth(authorization);
-            if (!basicAuth.isBuiltOK()) {
-                return Response.status(Response.Status.UNAUTHORIZED)
-                        .entity(ErrorResponseFactory.getInstance(
-                                "ERR-401-INTR0",
-                                "invalid-credentials",
-                                "Credenciales no válidas para esta función"))
-                        .build();
-            }
-
-            String clientId = basicAuth.getUser();
-            String clientSecret = basicAuth.getPassword();
-
             if (token_type == null || !token_type.equalsIgnoreCase("access-token") ||
-                    token == null || token.trim().length() == 0 ) {
+                token == null || token.trim().length() == 0 ||
+                clientId == null || clientId.trim().length() == 0 ||
+                clientSecret == null || clientSecret.trim().length() == 0 ) {
                 return Response.status(Response.Status.BAD_REQUEST)
                         .entity(ErrorResponseFactory.getInstance(
                                 "ERR-400-INTR",
@@ -62,6 +53,9 @@ public class TokenIntrospectResource {
                                 "Datos de solicitud incorrectos."))
                         .build();
             }
+            clientId = clientId.trim();
+            clientSecret = clientSecret.trim();
+            token = token.trim();
 
             Object persistenceControllerCtx = context.getAttribute("persistenceController");
             if (persistenceControllerCtx == null) {

@@ -32,7 +32,7 @@ public class TokenResource {
     @Context
     ServletContext context;
 
-    protected boolean isScopeSetValid (String[] requestedScopes, String[] authorizedScopes) {
+    protected boolean isScopeSetValid(String[] requestedScopes, String[] authorizedScopes) {
         Set<String> requestedScopesSet = new HashSet<String>(Arrays.asList(requestedScopes));
         Set<String> authorizedScopesSet = new HashSet<String>(Arrays.asList(authorizedScopes));
         return authorizedScopesSet.containsAll(requestedScopesSet);
@@ -41,29 +41,20 @@ public class TokenResource {
     @POST
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response newToken(@FormParam("grant_type") String grantType,
-                             @FormParam("scopes") String scopes,
-                             @HeaderParam("Authorization") String authorization,
-                             @Context UriInfo uriInfo) {
+    public Response newToken(
+            @FormParam("clientId") String clientId,
+            @FormParam("clientSecret") String clientSecret,
+            @FormParam("grant_type") String grantType,
+            @FormParam("scopes") String scopes,
+            @Context UriInfo uriInfo) {
 
         try {
             URI uri = uriInfo.getAbsolutePathBuilder().build();
 
-            BasicAuth basicAuth = new BasicAuth(authorization);
-            if (!basicAuth.isBuiltOK()) {
-                return Response.status(Response.Status.UNAUTHORIZED)
-                        .entity(ErrorResponseFactory.getInstance(
-                                "ERR-401-TKN0",
-                                "invalid-credentials",
-                                "Credenciales no válidas para esta función"))
-                        .build();
-            }
-
-            String clientId = basicAuth.getUser();
-            String clientSecret = basicAuth.getPassword();
-
             if (grantType == null || !grantType.equalsIgnoreCase("client_credentials") ||
-                scopes == null || scopes.trim().length() == 0 ) {
+                scopes == null || scopes.trim().length() == 0 ||
+                clientId == null || clientId.trim().length() == 0 ||
+                clientSecret == null || clientSecret.trim().length() == 0 ) {
                 return Response.status(Response.Status.BAD_REQUEST)
                         .entity(ErrorResponseFactory.getInstance(
                                 "ERR-400-TKN0",
@@ -71,6 +62,10 @@ public class TokenResource {
                                 "Datos de solicitud incorrectos."))
                         .build();
             }
+
+            clientId = clientId.trim();
+            clientSecret = clientSecret.trim();
+            scopes = scopes.trim();
 
             String patternString = "^[a-zA-Z0-9\\-,]+$";
             Pattern pattern = Pattern.compile(patternString);
@@ -120,7 +115,7 @@ public class TokenResource {
                             .build();
                 }
 
-                if (!isScopeSetValid (requestedScopes, apiClientItem.getScopes())) {
+                if (!isScopeSetValid(requestedScopes, apiClientItem.getScopes())) {
                     return Response.status(Response.Status.FORBIDDEN)
                             .entity(ErrorResponseFactory.getInstance(
                                     "ERR-403-TOKEN-TKN-SCOPES",
