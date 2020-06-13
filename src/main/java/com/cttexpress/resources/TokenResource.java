@@ -42,8 +42,8 @@ public class TokenResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Response newToken(
-            @FormParam("clientId") String clientId,
-            @FormParam("clientSecret") String clientSecret,
+            @FormParam("client_id") String clientId,
+            @FormParam("client_secret") String clientSecret,
             @FormParam("grant_type") String grantType,
             @FormParam("scopes") String scopes,
             @Context UriInfo uriInfo) {

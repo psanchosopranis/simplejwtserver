@@ -33,8 +33,8 @@ public class TokenIntrospectResource {
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     @Produces(MediaType.APPLICATION_JSON)
     public Response introspectToken(
-            @FormParam("clientId") String clientId,
-            @FormParam("clientSecret") String clientSecret,
+            @FormParam("client_id") String clientId,
+            @FormParam("client_secret") String clientSecret,
             @FormParam("token") String token,
             @FormParam("token_type") String token_type,
             @Context UriInfo uriInfo) {
