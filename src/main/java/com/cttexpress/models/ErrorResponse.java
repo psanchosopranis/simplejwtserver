@@ -6,16 +6,17 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
+import java.util.ArrayList;
 
 @XmlRootElement(name = "errorResponse")
-@XmlType(propOrder={"errorId", "errorAlias", "errorMessage"})
+@XmlType(propOrder={"errorId", "errorAlias", "errorMessages"})
 public class ErrorResponse {
     @XmlElement(name = "errorId")
     protected String errorId;
     @XmlElement(name = "errorAlias")
     protected String errorAlias;
-    @XmlElement(name = "errorMessage")
-    protected String errorMessage;
+    @XmlElement(name = "errorMessages")
+    protected ArrayList<String> errorMessages;
 
     public ErrorResponse() {
     }
@@ -36,12 +37,12 @@ public class ErrorResponse {
         this.errorAlias = errorAlias;
     }
 
-    public String getErrorMessage() {
-        return errorMessage;
+    public ArrayList<String> getErrorMessages() {
+        return errorMessages;
     }
 
-    public void setErrorMessage(String errorMessage) {
-        this.errorMessage = errorMessage;
+    public void setErrorMessages(ArrayList<String> errorMessages) {
+        this.errorMessages = errorMessages;
     }
 
     @Override
